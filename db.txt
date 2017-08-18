@@ -1,0 +1,44 @@
+CREATE TABLE `brands` (
+ `branch_id` int(10) NOT NULL AUTO_INCREMENT,
+ `branch_title` text NOT NULL,
+ PRIMARY KEY (`branch_id`));
+
+CREATE TABLE `cart` (
+ `product_id` int(10) NOT NULL,
+ `ip_address` float NOT NULL,
+ `qty` int(100) NOT NULL,
+ PRIMARY KEY (`product_id`));
+
+CREATE TABLE `category` (
+ `cat_id` int(10) NOT NULL AUTO_INCREMENT,
+ `cat_title` text NOT NULL,
+ PRIMARY KEY (`cat_id`));
+
+CREATE TABLE `customer` (
+ `customer_id` int(200) NOT NULL AUTO_INCREMENT,
+ `c_email` varchar(100) NOT NULL,
+ `c_password` varchar(40) NOT NULL,
+ `pincode` int(7) NOT NULL,
+ `name` varchar(50) NOT NULL,
+ `address` varchar(200) NOT NULL,
+ `locality` varchar(150) NOT NULL,
+ `city` text NOT NULL,
+ `state` text NOT NULL,
+ `mobile` int(11) NOT NULL,
+ `customer_ip` int(100) NOT NULL,
+ PRIMARY KEY (`customer_id`) );
+
+CREATE TABLE `products` (
+ `product_id` int(10) NOT NULL AUTO_INCREMENT,
+ `cat_id` int(10) NOT NULL,
+ `branch_id` int(10) NOT NULL,
+ `date` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+ `prod_title` text NOT NULL,
+ `prod_img1` text NOT NULL,
+ `prod_img2` text NOT NULL,
+ `prod_img3` text NOT NULL,
+ `prod_price` int(10) NOT NULL,
+ `pro_desc` text NOT NULL,
+ `prod_keyword` varchar(50) NOT NULL,
+ `status` text NOT NULL,
+ PRIMARY KEY (`product_id`)
